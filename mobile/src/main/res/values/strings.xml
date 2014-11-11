@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BluLed</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="noti_receiver_name">BluLedNotification</string>
+    <string name="service_name">BluLedService</string>
+
+    <string name="tab01">기본설정</string>
+    <string name="tab02">컬러설정</string>
+    <string name="tab03">About</string>
+
+    <string name="bluConf">블루투스설정</string>
+    <string name="devFind">장치찾기</string>
+    <string name="devList">장치목록</string>
+    <string name="devDisc">연결끊기</string>
+
+    <string name="conStat">연결상태</string>
+    <string name="conOn">연결됨</string>
+    <string name="conOff">연결되지않음</string>
+    <string name="conFail">연결실패</string>
+
+    <string name="ledStat">LED상태</string>
+    <string name="ledOn">ON</string>
+    <string name="ledOff">OFF</string>
+
+    <string name="dataReload">상태동기화</string>
+    <string name="dataReloadTip">BluLed 장치의 상태를 동기화 합니다.</string>
+    <string name="dataReloadBtn">동기화</string>
+
+    <string name="colSelect">컬러선택</string>
+    <string name="colSelected">선택된색상</string>
+
+    <string name="scanning">scanning for devices...</string>
+    <string name="select_device">select a device to connect</string>
+    <string name="none_paired">No devices have been paired</string>
+    <string name="none_found">No devices found</string>
+    <string name="title_paired_devices">Paired Devices</string>
+    <string name="title_other_devices">Other Available Devices</string>
+    <string name="button_scan">Scan for devices</string>
+
+
+</resources>
