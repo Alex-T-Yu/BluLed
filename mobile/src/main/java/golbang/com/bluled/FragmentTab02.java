@@ -12,7 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+
+import golbang.com.bluled.Utils.ColorPicker;
 
 
 /**
@@ -62,7 +63,9 @@ public class FragmentTab02 extends Fragment {
                 Log.d(TAG,rgbString);
 
                 if(!rgbString.equals("")) {
-                    ((main_phone) getActivity()).setLedColor(rgbString);
+//                    ((main_phone) getActivity()).setLedColor(rgbString);
+
+                    ((main_phone) getActivity()).postMessage(rgbString);
                 }
 
                 rgbCode.clear();

@@ -9,8 +9,6 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import golbang.com.bluled.Service.BluetoothService;
-
 /**
  * Created by yoosung-jong on 14. 10. 28..
  */
@@ -18,8 +16,6 @@ public class FragmentTab01 extends Fragment{
 
     private ListView mListView = null;
 
-    private BluetoothService btService = null;
-    private static final int REQUEST_ENABLE_BT = 0;
 
     private ListAdapterSupport adapterSupport;
     private ArrayList<ListViewData> dataList;
@@ -31,10 +27,29 @@ public class FragmentTab01 extends Fragment{
 
         dataList = new ArrayList<ListViewData>();
 
-        dataList.add(new ListViewData(getString(R.string.conStat),getString(R.string.conOff),true,getString(R.string.devFind)));
-        dataList.add(new ListViewData(getString(R.string.ledStat),"",false,"",true,false));
-        dataList.add(new ListViewData(getString(R.string.dataReload),getString(R.string.dataReloadTip),true,getString(R.string.dataReloadBtn)));
+        boolean btStatus = ((main_phone)getActivity()).getBtConnect();
 
+        if(btStatus){
+            dataList.add(0
+                    ,new ListViewData(getString(R.string.conStat)
+                            ,getString(R.string.conOn)
+                            ,true
+                            ,getString(R.string.devDisc))
+            );
+            dataList.add(1
+                    ,new ListViewData(getString(R.string.ledStat)
+                    ,""
+                    ,false
+                    ,""
+                    ,true
+                    ,((main_phone)getActivity()).getLedFlag()));
+            dataList.add(2
+                    ,new ListViewData(getString(R.string.dataReload)
+                    ,getString(R.string.dataReloadTip)
+                    ,true,getString(R.string.dataReloadBtn)));
+        }else{
+            dataList.add(new ListViewData(getString(R.string.conStat), getString(R.string.conOff), true, getString(R.string.devFind)));
+        }
         adapterSupport = new ListAdapterSupport(getActivity(),dataList);
 
         mListView = (ListView)fragmentView.findViewById(R.id.lvTab);
@@ -56,6 +71,18 @@ public class FragmentTab01 extends Fragment{
                                      ,true
                                      ,getString(R.string.devDisc))
                     );
+        dataList.add(1
+                    ,new ListViewData(getString(R.string.ledStat)
+                                      ,""
+                                      ,false
+                                      ,""
+                                      ,true
+                                      ,false));
+        dataList.add(2
+                    ,new ListViewData(getString(R.string.dataReload)
+                                      ,getString(R.string.dataReloadTip)
+                                      ,true,getString(R.string.dataReloadBtn)));
+
         adapterSupport.notifyDataSetChanged();
     }
 
@@ -71,12 +98,15 @@ public class FragmentTab01 extends Fragment{
     }
 
     public void onBtDisconnect(){
-        dataList.remove(0);
+
+        dataList.removeAll(dataList);
+
         dataList.add(0
-                    ,new ListViewData(getString(R.string.conStat)
-                    ,getString(R.string.conOff)
-                    ,true
-                    ,getString(R.string.devFind)));
+                , new ListViewData(getString(R.string.conStat)
+                , getString(R.string.conOff)
+                , true
+                , getString(R.string.devFind)));
+
         adapterSupport.notifyDataSetChanged();
     }
 

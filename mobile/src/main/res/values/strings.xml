@@ -16,6 +16,7 @@
     <string name="devFind">장치찾기</string>
     <string name="devList">장치목록</string>
     <string name="devDisc">연결끊기</string>
+    <string name="devNotFound">장치를 찾을 수 없습니다.</string>
 
     <string name="conStat">연결상태</string>
     <string name="conOn">연결됨</string>

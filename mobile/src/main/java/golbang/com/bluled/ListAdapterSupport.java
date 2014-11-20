@@ -15,6 +15,8 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
+import golbang.com.bluled.Utils.Constants;
+
 /**
  * Created by yoosung-jong on 14. 10. 28..
  */
@@ -110,10 +112,12 @@ public class ListAdapterSupport extends BaseAdapter {
                         Switch sw = (Switch)view.findViewById(R.id.itemSw);
                         if(sw.isChecked()){
 //                            Toast.makeText(view.getContext(),"isChecked",Toast.LENGTH_SHORT).show();
-                            ((main_phone)view.getContext()).setLed(true);
+                            ((main_phone)view.getContext()).setLedFlag(true);
+                            ((main_phone)view.getContext()).postLedkey(Constants.POST_MASSAGE_LED_ON);
                         }else{
 //                            Toast.makeText(view.getContext(),"isNotChecked",Toast.LENGTH_SHORT).show();
-                            ((main_phone)view.getContext()).setLed(false);
+                            ((main_phone)view.getContext()).setLedFlag(false);
+                            ((main_phone)view.getContext()).postLedkey(Constants.POST_MASSAGE_LED_OFF);
                         }
                     }
 
@@ -123,11 +127,11 @@ public class ListAdapterSupport extends BaseAdapter {
 
 //                  버튼 이벤트
                     if(view.getTag().toString().equals("0")){
-                        ((main_phone)view.getContext()).setBt();
+                        ((main_phone)view.getContext()).doScan();
                     }else if(view.getTag().toString().equals("2")){
                         Toast.makeText(view.getContext(),"click row 2",Toast.LENGTH_SHORT).show();
                     }else if(view.getTag().toString().equals("10")){
-                        ((main_phone)view.getContext()).setBtDisconnect();
+                        ((main_phone)view.getContext()).disconnectBt();
                     }
 
                     break;
